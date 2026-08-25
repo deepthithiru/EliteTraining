@@ -1,0 +1,40 @@
+class ClassA {
+    int a = 10;
+
+    void displayA(int a, int b) {
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
+
+class ClassB extends ClassA {
+    int b = 20;
+
+    void displayB(int a) {
+        System.out.println(a);
+    }
+}
+
+class ClassC extends ClassB {
+    int c = 30;
+}
+
+public class multilevel {
+    public static void main(String args[]) {
+        ClassA aObj = new ClassA();
+        System.out.println(aObj.a);
+
+        ClassB bObj = new ClassB();
+        System.out.println(bObj.a);
+        System.out.println(bObj.b);
+
+        ClassC cObj = new ClassC();
+        System.out.println(cObj.a);
+        System.out.println(cObj.b);
+        System.out.println(cObj.c);
+
+        aObj.displayA(10, 20);
+        bObj.displayB(1);
+        bObj.displayA(40, 50);
+    }
+}
