@@ -1,0 +1,59 @@
+class ClassA {
+    int a = 10;
+}
+
+class ClassB extends ClassA {
+    int b = 20;
+
+}
+
+class ClassD extends ClassB {
+
+    int d = 40;
+}
+
+class ClassC extends ClassA {
+    int c = 30;
+}
+
+class ClassE extends ClassC {
+    int e = 50;
+}
+
+class ClassF extends ClassE {
+    int f = 60;
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ClassA aObj = new ClassA();
+        ClassB bObj = new ClassB();
+        ClassC cObj = new ClassC();
+        ClassD dObj = new ClassD();
+        ClassE eObj = new ClassE();
+        ClassF fObj = new ClassF();
+
+        System.out.println(aObj.a);
+
+        System.out.println(bObj.a);
+        System.out.println(bObj.b);
+
+        System.out.println(cObj.a);
+        System.out.println(cObj.c);
+
+        
+        System.out.println(dObj.b);
+        System.out.println(dObj.a);
+        System.out.println(dObj.d);
+
+        System.out.println(eObj.c);
+        System.out.println(eObj.e);
+        System.out.println(eObj.a);
+
+        System.out.println(fObj.e);
+        System.out.println(fObj.c);
+        System.out.println(fObj.f);
+        System.out.println(fObj.a);
+
+    }
+}
