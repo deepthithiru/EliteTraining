@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+class Node{
+    int data;
+    Node Address;
+    Node head = null;
+    Node tail = null;
+
+    Node(int data, Node add){
+        this.data = data;
+        this.Address = add;
+    }
+    Node(){
+
+    }
+
+    void insert(Scanner sc){
+        int n = sc.nextInt();
+         
+        for(int i=0;i<n;i++){
+           
+            int val = sc.nextInt();
+            Node obj = new Node(val,null);
+            if(head == null){
+                head = obj;
+                tail = obj;
+            }
+            else{
+                tail.Address = obj;
+                tail = obj;
+            }
+        }
+
+    }
+
+
+    void display(){
+    
+        Node temp = head;
+        while(temp != null){
+            System.out.println(temp.data);
+            temp = temp.Address;
+        }   
+    
+   
+     
+   }
+}
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        Node node = new Node();
+        node.insert(sc);
+        node.display();
+        System.out.println("1) insertNode \n 2)DeleteNode \n 3) DeleteNode");
+        int choice = sc.nextInt();
+        switch(choice){
+            case 1:{
+                node.insert(sc);
+            }
+            case 2:{
+                node.display(); 
+            }
+
+
+        }
+        
+
+    }
+}
