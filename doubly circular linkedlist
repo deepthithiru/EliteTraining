@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+class Node {
+    int data;
+    Node prev, next;
+    Node head = null, tail = null;
+
+    public Node(Node prev, int data, Node next) {
+        this.data = data;
+        this.prev = prev;
+        this.next = next;
+    }
+
+    Node() {
+
+    }
+
+    public void insertData(Scanner in) {
+        System.out.println("Enter the no of data: ");
+        int n = in.nextInt();
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter the val: ");
+            int val = in.nextInt();
+            Node obj = new Node(null, val, null);
+            if (head == null) {
+                head = obj;
+                obj.prev = obj;
+            } else {
+                tail.next = obj;
+                obj.prev = tail;
+            }
+            tail = obj;
+            head.prev = obj;
+            obj.next = head;
+        }
+    }
+
+    void display() {
+        Node temp = head;
+        do {
+            System.out.println(temp.data);
+            temp = temp.next;
+        } while (temp != head);
+    }
+
+    void insertMid(Scanner in) {
+        System.out.println("Enter the position: ");
+        int pos = in.nextInt();
+        System.out.println("Enter the value: ");
+        int val = in.nextInt();
+        Node obj = new Node(null, val, null);
+        if (pos == 1) {
+            obj.next = head;
+            head.prev = obj;
+            obj.prev = tail;
+        } else {
+            Node temp = head;
+            for (int i = 0; i < pos - 2; i++) {
+                temp = temp.next;
+            }
+        }
+    }
+
+public class Main
+{
+	public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Node node = new Node();
+        while(true){
+            System.out.println("1 insert \n 2 display ");
+            int choice = in.nextInt();
+            switch(choice){
+                case 1:{
+                    node.insertData(in);
+
+                }
+                case 2:{
+                    node.display();
+                }
+            }
+
+        }
+		
+	}
+}
+}
